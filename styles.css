@@ -102,6 +102,30 @@ body {
     font-weight: bold;
 }
 
+/* Tag Styles */
+.tags {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #2575fc;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #6a11cb;
+}
+
 /* About Section */
 #about {
     padding: 50px 20px;
