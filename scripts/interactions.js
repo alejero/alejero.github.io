@@ -166,3 +166,111 @@ portfolioFilterButtons.forEach((button) => {
         });
     });
 });
+
+// Smooth scroll functionality
+document.querySelector('.scroll-indicator').addEventListener('click', () => {
+    const aboutSection = document.getElementById('about');
+    aboutSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
+
+// Hide/show scroll indicator based on scroll position
+window.addEventListener('scroll', () => {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const heroSection = document.getElementById('hero');
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    
+    if (window.scrollY > heroBottom / 4) {
+        scrollIndicator.style.opacity = '0';
+    } else {
+        scrollIndicator.style.opacity = '0.8';
+    }
+});
+
+// Add smooth scroll behavior to all internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Initialize Portfolio Swiper
+const portfolioSwiper = new Swiper('.portfolio-swiper', {
+    // Enable responsive breakpoints
+    breakpoints: {
+        // Mobile
+        320: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            centeredSlides: true
+        },
+        // Tablet
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 30
+        },
+        // Desktop
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 40
+        }
+    },
+    
+    // Enable infinite loop
+    loop: true,
+    loopedSlides: 4,
+    centeredSlides: true,
+    grabCursor: true,
+    
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    
+    // Pagination
+    pagination: {
+        el: '.portfolio-carousel-container .swiper-pagination',
+        clickable: true,
+    },
+
+    // Auto height
+    autoHeight: false,
+
+    // Smooth transitions
+    effect: 'slide',
+    speed: 800,
+
+    // Auto play (optional)
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+    }
+});
+
+// Update Swiper when filtering
+function updatePortfolioSwiper() {
+    portfolioSwiper.update();
+    portfolioSwiper.slideTo(0);
+}
+
+// Add to your existing filter click handler
+portfolioFilterButtons.forEach((button) => {
+    button.addEventListener('click', () => {       
+        // Update swiper after filtering
+        updatePortfolioSwiper();
+    });
+});
