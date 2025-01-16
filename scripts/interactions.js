@@ -4,8 +4,8 @@ const body = document.body;
 const logoImage = document.querySelector('.navbar-logo img');
 
 // Paths for logos
-const lightLogoPath = "assets/alejero.studio-logos/alejero.studio-logo-black.svg";
-const darkLogoPath = "assets/alejero.studio-logos/alejero.studio-logo-white.svg";
+const lightLogoPath = "assets/alejero.studio/logos/alejero.studio-logo-black.svg";
+const darkLogoPath = "assets/alejero.studio/logos/alejero.studio-logo-white.svg";
 
 // Check and apply saved dark mode preference
 if (localStorage.getItem('darkMode') === 'enabled') {
@@ -31,43 +31,56 @@ darkModeToggle.addEventListener('click', () => {
 // Skills Filter Functionality
 const skillFilterButtons = document.querySelectorAll('.skills-filter .filter-btn');
 const skillBubbles = document.querySelectorAll('.skill-bubble');
-let activeSkillFilters = new Set();
+let activeSkillFilters = new Set(['all']); // Initialize with 'all'
+
+// Set initial state
+document.querySelector('.skills-filter [data-filter="all"]').classList.add('active');
+updateSkillBubbles();
+
+function updateSkillBubbles() {
+    skillBubbles.forEach((bubble) => {
+        const category = bubble.dataset.category;
+        const isHighlighted = activeSkillFilters.has('all') || 
+                            (activeSkillFilters.size > 0 && [...activeSkillFilters].includes(category));
+        
+        bubble.classList.toggle('highlighted', isHighlighted);
+    });
+}
 
 skillFilterButtons.forEach((button) => {
     button.addEventListener('click', () => {
         const filter = button.dataset.filter;
 
-        // Handle "All" filter
-        if (filter === 'all') {
-            activeSkillFilters.clear();
-            skillFilterButtons.forEach((btn) => btn.classList.remove('active'));
-            skillBubbles.forEach((bubble) => bubble.classList.add('highlighted'));
-            setTimeout(() => {
-                skillBubbles.forEach((bubble) => bubble.classList.remove('highlighted'));
-            }, 2000);
-            return;
-        }
-
         // Toggle filter button state
         if (activeSkillFilters.has(filter)) {
             activeSkillFilters.delete(filter);
             button.classList.remove('active');
+            
+            // If no filters are active, set 'all' as default
+            if (activeSkillFilters.size === 0) {
+                activeSkillFilters.add('all');
+                document.querySelector('.skills-filter [data-filter="all"]').classList.add('active');
+            }
         } else {
+            if (filter === 'all') {
+                // If 'all' is clicked, remove other filters
+                activeSkillFilters.clear();
+            } else {
+                // If another filter is clicked, remove 'all'
+                activeSkillFilters.delete('all');
+                document.querySelector('.skills-filter [data-filter="all"]').classList.remove('active');
+            }
             activeSkillFilters.add(filter);
             button.classList.add('active');
         }
 
-        // Update skill bubbles
-        skillBubbles.forEach((bubble) => {
-            const category = bubble.dataset.category;
-            const shouldHighlight = [...activeSkillFilters].includes(category);
-            bubble.classList.toggle('highlighted', shouldHighlight);
-        });
+        updateSkillBubbles();
 
-        // If no filters are active, reset all bubbles
-        if (activeSkillFilters.size === 0) {
-            skillBubbles.forEach((bubble) => bubble.classList.remove('highlighted'));
-        }
+        // Update all button states
+        skillFilterButtons.forEach((btn) => {
+            const btnFilter = btn.dataset.filter;
+            btn.classList.toggle('active', activeSkillFilters.has(btnFilter));
+        });
     });
 });
 
@@ -96,4 +109,60 @@ document.addEventListener('click', (e) => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
     }
+});
+
+// Portfolio Filter Functionality
+const portfolioFilterButtons = document.querySelectorAll('.portfolio-filter .filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-card');
+let activePortfolioFilters = new Set(['all']); // Initialize with 'all'
+
+// Set initial state
+document.querySelector('.portfolio-filter [data-filter="all"]').classList.add('active');
+updatePortfolioItems();
+
+function updatePortfolioItems() {
+    portfolioItems.forEach((item) => {
+        const category = item.dataset.category;
+        const isVisible = activePortfolioFilters.has('all') || 
+                         (activePortfolioFilters.size > 0 && [...activePortfolioFilters].includes(category));
+        
+        item.style.display = isVisible ? 'block' : 'none';
+    });
+}
+
+portfolioFilterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        // Toggle filter button state
+        if (activePortfolioFilters.has(filter)) {
+            activePortfolioFilters.delete(filter);
+            button.classList.remove('active');
+            
+            // If no filters are active, set 'all' as default
+            if (activePortfolioFilters.size === 0) {
+                activePortfolioFilters.add('all');
+                document.querySelector('.portfolio-filter [data-filter="all"]').classList.add('active');
+            }
+        } else {
+            if (filter === 'all') {
+                // If 'all' is clicked, remove other filters
+                activePortfolioFilters.clear();
+            } else {
+                // If another filter is clicked, remove 'all'
+                activePortfolioFilters.delete('all');
+                document.querySelector('.portfolio-filter [data-filter="all"]').classList.remove('active');
+            }
+            activePortfolioFilters.add(filter);
+            button.classList.add('active');
+        }
+
+        updatePortfolioItems();
+
+        // Update all button states
+        portfolioFilterButtons.forEach((btn) => {
+            const btnFilter = btn.dataset.filter;
+            btn.classList.toggle('active', activePortfolioFilters.has(btnFilter));
+        });
+    });
 });
