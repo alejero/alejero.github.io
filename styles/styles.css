@@ -206,6 +206,43 @@ section:nth-child(odd) {
     transform: translateY(-2px);
 }
 
+.typed-text {
+  font-weight: bold;
+  color: #007aff;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: #333;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+.cursor.typing {
+  animation: none;
+}
+
+@keyframes blink {
+  0%  { background-color: #333; }
+  49% { background-color: #333; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #333; }
+}
+
+[data-theme="dark"] .cursor {
+  background-color: #fff;
+}
+
+@keyframes blink-dark {
+  0%  { background-color: #fff; }
+  49% { background-color: #fff; }
+  50% { background-color: transparent; }
+  99% { background-color: transparent; }
+  100%  { background-color: #fff; }
+}
+
 /* Dark mode - keep button styling consistent */
 body.dark-mode #hero .cta-button {
     background: #007aff;

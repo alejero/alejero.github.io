@@ -252,3 +252,57 @@ portfolioFilterButtons.forEach((button) => {
         updatePortfolioSwiper();
     });
 });
+
+class TypeWriter {
+  constructor(txtElement, words, wait = 3000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = '';
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
+  }
+
+  type() {
+    const current = this.wordIndex % this.words.length;
+    const fullTxt = this.words[current];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.txtElement.innerHTML = this.txt;
+
+    let typeSpeed = 100;
+
+    if (this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      typeSpeed = this.wait;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.wordIndex++;
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+// Init On DOM Load
+document.addEventListener('DOMContentLoaded', init);
+
+function init() {
+  const txtElement = document.querySelector('.typed-text');
+  const words = ['inspire', 'transform', 'innovate', 'amaze', 'endure'];
+  const wait = 3000;
+  
+  // Init TypeWriter
+  new TypeWriter(txtElement, words, wait);
+}
