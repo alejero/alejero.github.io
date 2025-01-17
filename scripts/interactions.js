@@ -31,18 +31,16 @@ darkModeToggle.addEventListener('click', () => {
 // Skills Filter Functionality
 const skillFilterButtons = document.querySelectorAll('.skills-filter .filter-btn');
 const skillBubbles = document.querySelectorAll('.skill-bubble');
-let activeSkillFilters = new Set(['all']); // Initialize with 'all'
+let activeSkillFilters = new Set(['technologies']); // Initialize with 'technologies' instead of 'all'
 
-// Set initial state
-document.querySelector('.skills-filter [data-filter="all"]').classList.add('active');
+// Set initial state for first button (technologies)
+document.querySelector('.skills-filter [data-filter="technologies"]').classList.add('active');
 updateSkillBubbles();
 
 function updateSkillBubbles() {
     skillBubbles.forEach((bubble) => {
         const category = bubble.dataset.category;
-        const isHighlighted = activeSkillFilters.has('all') || 
-                            (activeSkillFilters.size > 0 && [...activeSkillFilters].includes(category));
-        
+        const isHighlighted = activeSkillFilters.has(category);
         bubble.classList.toggle('highlighted', isHighlighted);
     });
 }
@@ -52,35 +50,15 @@ skillFilterButtons.forEach((button) => {
         const filter = button.dataset.filter;
 
         // Toggle filter button state
-        if (activeSkillFilters.has(filter)) {
-            activeSkillFilters.delete(filter);
-            button.classList.remove('active');
-            
-            // If no filters are active, set 'all' as default
-            if (activeSkillFilters.size === 0) {
-                activeSkillFilters.add('all');
-                document.querySelector('.skills-filter [data-filter="all"]').classList.add('active');
-            }
-        } else {
-            if (filter === 'all') {
-                // If 'all' is clicked, remove other filters
-                activeSkillFilters.clear();
-            } else {
-                // If another filter is clicked, remove 'all'
-                activeSkillFilters.delete('all');
-                document.querySelector('.skills-filter [data-filter="all"]').classList.remove('active');
-            }
+        if (!activeSkillFilters.has(filter)) {
             activeSkillFilters.add(filter);
             button.classList.add('active');
+        } else if (activeSkillFilters.size > 0) {
+            activeSkillFilters.delete(filter);
+            button.classList.remove('active');
         }
 
         updateSkillBubbles();
-
-        // Update all button states
-        skillFilterButtons.forEach((btn) => {
-            const btnFilter = btn.dataset.filter;
-            btn.classList.toggle('active', activeSkillFilters.has(btnFilter));
-        });
     });
 });
 
