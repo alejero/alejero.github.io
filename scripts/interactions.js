@@ -306,3 +306,16 @@ function init() {
   // Init TypeWriter
   new TypeWriter(txtElement, words, wait);
 }
+
+function updateHeroSpacing() {
+    const navbar = document.querySelector('.navbar');
+    const navbarHeight = navbar.offsetHeight;
+    // Set the navbar height in the custom property
+    document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+}
+
+// Run on page load
+updateHeroSpacing();
+
+// Run on window resize
+window.addEventListener('resize', updateHeroSpacing);
