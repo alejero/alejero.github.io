@@ -273,34 +273,35 @@ section:nth-child(odd) {
 .cursor {
   display: inline-block;
   width: 3px;
-  background-color: var(--cursor-color);
+  background-color: var(--color-text);
   margin-left: 2px;
-  /* animation: blink 1s infinite; */
-}
-
-.cursor.typing {
   animation: blink 1s infinite;
 }
 
-[data-theme="dark"] .cursor.typing {
-    background-color: var(--color-white);
+.cursor.typing {
+  animation: none;
+}
+
+body.dark-mode #hero .cursor {
+    background-color: var(--dark-text);  /* Set dark mode color */
     animation: blink-dark 1s infinite;
 }
 
+
 @keyframes blink {
-  0%  { background-color: var(--cursor-color); }
-  49% { background-color: var(--cursor-color); }
+  0%  { background-color: var(--color-text); }
+  49% { background-color: var(--color-text); }
   50% { background-color: transparent; }
   99% { background-color: transparent; }
-  100% { background-color: var(--cursor-color); }
+  100% { background-color: var(--color-text); }
 }
 
 @keyframes blink-dark {
-    0%  { background-color: var(--color-white); }
-    49% { background-color: var(--color-white); }
+    0%  { background-color: var(--dark-text); }
+    49% { background-color: var(--dark-text); }
     50% { background-color: transparent; }
     99% { background-color: transparent; }
-    100% { background-color: var(--color-white); }
+    100% { background-color: var(--dark-text); }
 }
 
 /* Dark mode - keep button styling consistent */
