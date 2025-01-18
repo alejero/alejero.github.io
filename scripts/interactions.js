@@ -4,8 +4,8 @@ const body = document.body;
 const logoImage = document.querySelector('.navbar-logo img');
 
 // Paths for logos
-const lightLogoPath = "assets/alejero.studio/logos/alejero.studio-logo-black.svg";
-const darkLogoPath = "assets/alejero.studio/logos/alejero.studio-logo-white.svg";
+const lightLogoPath = "assets/alejero/logos/alejero-logo-black.svg";
+const darkLogoPath = "assets/alejero/logos/alejero-logo-white.svg";
 
 // Check and apply saved dark mode preference
 if (localStorage.getItem('darkMode') === 'enabled') {
