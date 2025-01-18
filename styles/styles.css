@@ -358,7 +358,7 @@ body.dark-mode #hero .cta-button:hover {
     }
     
     .scroll-indicator {
-        bottom: 15px;
+        bottom: var(--spacing-sm);
     }
 }
 
@@ -1661,34 +1661,22 @@ body.dark-mode section h2 {
 }
 
 /* Scroll Indicator */
-/* .scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-} */
-
-/* .scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);  /* adds consistent spacing between icon and text 
-} */
-
 .scroll-indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;  /* Add right: 0 to help with centering */
+    margin: 0 auto;  /* Use margin auto instead of transform */
     gap: var(--spacing-xs);
+    width: fit-content;  /* Contain the width to the content */
 }
 
 .scroll-indicator i {
+    display: block;  /* Change to block */
+    text-align: center;
     color: var(--color-primary);
     animation: bounce 2s infinite;
     font-size: 2rem;
@@ -1706,13 +1694,13 @@ body.dark-mode .scroll-indicator span {
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0) translateX(-50%);
+        transform: translateY(0);
     }
     40% {
-        transform: translateY(-10px) translateX(-50%);
+        transform: translateY(-10px);
     }
     60% {
-        transform: translateY(-5px) translateX(-50%);
+        transform: translateY(-5px);
     }
 }
 
