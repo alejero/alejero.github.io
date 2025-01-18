@@ -1164,7 +1164,7 @@ body.dark-mode .skill-tag {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 60px;
     padding: 0 20px;
 }
@@ -1201,6 +1201,161 @@ body.dark-mode .skill-tag {
     line-height: 1.8;
     margin-bottom: 30px;
     color: #4c4c4e;
+}
+
+.intro-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.greeting {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    font-weight: 600;
+    display: inline-block;
+    padding-bottom: 0px !important;
+}
+
+.role-title {
+    font-size: var(--font-size-xl);
+    line-height: 1.4;
+    margin: 0;
+    color: var(--color-text);
+}
+
+.highlight {
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+}
+
+/* Optional: Add an underline effect to highlights */
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    opacity: 0.3;
+}
+
+.mission {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .role-title {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .mission {
+    color: var(--dark-text-secondary);
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .intro-main {
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .greeting {
+        font-size: var(--font-size-md);
+    }
+
+    .role-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .mission {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Journey Cards Container */
+.journey-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg);
+}
+
+/* Individual Journey Card */
+.journey-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-default);
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Card Header */
+.card-header {
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Card Content */
+.journey-card p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .journey-card {
+    background: var(--dark-surface);
+}
+
+body.dark-mode .journey-card p {
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode .card-header {
+    color: var(--dark-text);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .journey-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .journey-card {
+        padding: var(--spacing-sm);
+        margin-left: var(--spacing-md);
+        margin-right: var(--spacing-md);
+    }
+}
+
+/* Tablet Responsive */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .journey-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.intro-cta p {
+    margin-bottom: 30px;
+    text-align: left;
 }
 
 /* Professional Details */
@@ -1240,7 +1395,7 @@ body.dark-mode .skill-tag {
 
 /* Fun Facts */
 .fun-facts {
-    background: #f8f8f8;
+    background: var(--color-background);
     border-radius: 15px;
     padding: 20px;
     margin-top: 30px;
@@ -1248,6 +1403,7 @@ body.dark-mode .skill-tag {
 
 .fun-facts h3 {
     color: var(--color-text);
+    margin-top: 0px !important;
     margin-bottom: 15px;
     font-size: 1.3rem;
 }
@@ -1270,7 +1426,7 @@ body.dark-mode .about-text p {
 }
 
 body.dark-mode .fun-facts {
-    background: #2c2c2e;
+    background: var(--dark-surface);
 }
 
 body.dark-mode .fun-facts h3 {
