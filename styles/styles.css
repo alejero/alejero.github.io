@@ -283,11 +283,6 @@ section:nth-child(odd) {
   animation: none;
 }
 
-body.dark-mode #hero .cursor {
-    background-color: var(--dark-text);  /* Set dark mode color */
-    animation: blink-dark 1s infinite;
-}
-
 
 @keyframes blink {
   0%  { background-color: var(--color-text); }
@@ -295,14 +290,6 @@ body.dark-mode #hero .cursor {
   50% { background-color: transparent; }
   99% { background-color: transparent; }
   100% { background-color: var(--color-text); }
-}
-
-@keyframes blink-dark {
-    0%  { background-color: var(--dark-text); }
-    49% { background-color: var(--dark-text); }
-    50% { background-color: transparent; }
-    99% { background-color: transparent; }
-    100% { background-color: var(--dark-text); }
 }
 
 /* About Section Base Styles */
@@ -352,6 +339,21 @@ body.dark-mode #hero .cursor {
     text-align: left;
     padding: var(--spacing-md);
     margin-top: var(--spacing-lg);
+}
+
+.key-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.skill-tag {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--color-primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
 }
 
 /* Currently Into Section - Widget Style */
@@ -417,7 +419,7 @@ body.dark-mode #hero .cursor {
 /* Widget Content */
 .widget-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--spacing-md);
     padding: 0;  /* Remove previous padding */
 }
@@ -463,19 +465,23 @@ body.dark-mode #hero .cursor {
 
 /* Widget Theme Colors */
 .gaming .app-icon {
-    background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+    /* background: linear-gradient(135deg, #FF6B6B, #4ECDC4); */
+    background-color: var(--color-primary);
 }
 
 .reading .app-icon {
-    background: linear-gradient(135deg, #A8E6CF, #3D84A8);
+    /* background: linear-gradient(135deg, #A8E6CF, #3D84A8); */
+    background-color: var(--color-primary);
 }
 
 .podcast .app-icon {
-    background: linear-gradient(135deg, #FFD93D, #FF6B6B);
+    /* background: linear-gradient(135deg, #FFD93D, #FF6B6B); */
+    background-color: var(--color-primary);
 }
 
 .watching .app-icon {
-    background: linear-gradient(135deg, #6C5B7B, #C06C84);
+    /* background: linear-gradient(135deg, #6C5B7B, #C06C84); */
+    background-color: var(--color-primary);
 }
 
 /* Resolution Adjustments */
@@ -1953,6 +1959,19 @@ body.dark-mode #hero {
     color: var(--dark-text);
 }
 
+body.dark-mode #hero .cursor {
+    background-color: var(--dark-text);  /* Set dark mode color */
+    animation: blink-dark 1s infinite;
+}
+
+@keyframes blink-dark {
+    0%  { background-color: var(--dark-text); }
+    49% { background-color: var(--dark-text); }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100% { background-color: var(--dark-text); }
+}
+
 /* Dark Mode - Skills Section*/
 body.dark-mode .skill-bubble {
     background: #3c3c3e;
@@ -2095,6 +2114,7 @@ body.dark-mode .app-name,
 body.dark-mode .widget-details {
     color: var(--dark-text-secondary);
 }
+
 /* Dark Mode - Blog Section */
 body.dark-mode #blog {
     background-color: var(--dark-background);
