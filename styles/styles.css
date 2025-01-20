@@ -23,7 +23,14 @@
     --spacing-lg: 40px;
     --spacing-xl: 60px;
     --spacing-xxl: 100px;
-    
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
     /* Border Radius */
     --border-radius-sm: 5px;
     --border-radius-md: 8px;
@@ -317,6 +324,7 @@ section:nth-child(odd) {
 
 .card-header {
     font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
 }
 
 .mission,
@@ -483,6 +491,19 @@ section:nth-child(odd) {
     /* background: linear-gradient(135deg, #6C5B7B, #C06C84); */
     background-color: var(--color-primary);
 }
+
+.social-links {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.social-links a {
+    width: fit-content;
+}
+
 
 /* Resolution Adjustments */
 /* Very Small Screens Adjustments */
