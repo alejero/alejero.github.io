@@ -124,8 +124,8 @@
             <!-- Call to action -->
             <div class="intro-cta">
               <p>
-                Let's make something amazing together—explore my projects or drop
-                me a message!
+                Let's make something amazing together—explore my projects or
+                drop me a message!
               </p>
             </div>
           </div>
@@ -306,6 +306,112 @@
       </div>
     </section>
 
+    <!-- Currently Into Section -->
+    <section id="currently-into">
+      <div class="section-container">
+        <h2>Currently Into</h2>
+        <div class="widget-grid">
+          <!-- Gaming Widget -->
+          <div class="widget gaming">
+            <div class="widget-header">
+              <div class="app-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <span class="app-name">Now Playing</span>
+            </div>
+            <div class="widget-content">
+              <div class="content-icon">
+                <img
+                  src="assets/currently-intos/games/mini-motorways-app-icon.avif"
+                  alt="Mini Motorways Icon"
+                />
+              </div>
+              <div class="content-details">
+                <h3>Mini Motorways</h3>
+                <div class="widget-details">
+                  <span class="status"
+                  >Currently trying to get all cities over 2000 trips.</span
+                >
+                  <!-- <span class="time">100+ hours</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reading Widget -->
+          <div class="widget reading">
+            <div class="widget-header">
+              <div class="app-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <span class="app-name">Currently Reading</span>
+            </div>
+            <div class="widget-content">
+              <div class="content-icon">
+                <img
+                  src="assets/currently-intos/books/harry-potter-piedra-filosofal.gif"
+                  alt="Harry Potter and the Philosopher's Stone Spanish book cover"
+                />
+              </div>
+              <div class="widget-details">
+                <h3>Harry Potter (Spanish)</h3>
+                <span class="status"
+                  >Book 1: Harry Potter and the Philosopher's Stone</span
+                >
+                <span class="progress">64% Complete</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Podcast Widget -->
+          <div class="widget podcast">
+            <div class="widget-header">
+              <div class="app-icon">
+                <i class="fas fa-podcast"></i>
+              </div>
+              <span class="app-name">Latest Episode</span>
+            </div>
+            <div class="widget-content">
+              <div class="content-icon">
+                <img
+                  src="assets/currently-intos/podcasts/waveform-podcast-logo.webp"
+                  alt="Waveform Podcast Logo"
+                />
+              </div>
+              <div class="widget-details">
+                <h3>Waveform Podcast</h3>
+                <span class="status">Last episode: TikTok on the Clock</span>
+                <span class="time">Watching every Friday • 55min</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Watching Widget -->
+          <div class="widget watching">
+            <div class="widget-header">
+              <div class="app-icon">
+                <i class="fas fa-film"></i>
+              </div>
+              <span class="app-name">Now Streaming</span>
+            </div>
+            <div class="widget-content">
+              <div class="content-icon">
+                <img
+                  src="assets/currently-intos/tvshows/How_I_Met_Your_Mother_poster.webp"
+                  alt="How I Met Your Mother TV Show Poster"
+                />
+              </div>
+              <div class="widget-details">
+                <h3>How I Met Your Mother</h3>
+                <span class="status">TV Show • Season 4 Episode 8</span>
+                <span class="platform">My Library</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Blog Section -->
     <section id="blog">
       <h2>Latest Insights</h2>
@@ -328,23 +434,44 @@
       <h2>Contact Me</h2>
       <form action="https://formsubmit.co/hi@alejero.com" method="POST">
         <!-- Honeypot to prevent spam -->
-        <input type="text" name="_honey" style="display: none;">
-        
+        <input type="text" name="_honey" style="display: none" />
+
         <!-- Disable Captcha -->
-        <input type="hidden" name="_captcha" value="false">
-        
+        <input type="hidden" name="_captcha" value="false" />
+
         <!-- Success page -->
-        <input type="hidden" name="_next" value="https://your-website.com/thanks.html">
-        
+        <input
+          type="hidden"
+          name="_next"
+          value="https://your-website.com/thanks.html"
+        />
+
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
         <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+
         <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-        
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
+
         <button type="submit">Send Message</button>
       </form>
     </section>
