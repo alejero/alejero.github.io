@@ -55,7 +55,7 @@
 
     <!-- Hero Section -->
     <section id="hero">
-      <h1 href="#about">Hello, my name is Alejandro</h1>
+      <h1 href="#about">Hi, my name is Alejandro</h1>
       <p>
         Creating experiences that <span class="typed-text"></span
         ><span class="cursor">&nbsp;</span>
@@ -238,7 +238,7 @@
 
       <!-- Add an outer container -->
       <div class="portfolio-carousel-container">
-        <div class="swiper portfolio-swiper">
+        <div class="portfolio-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="portfolio-card" data-category="web">
@@ -326,37 +326,32 @@
     <!-- Contact Section -->
     <section id="contact">
       <h2>Contact Me</h2>
-      <form>
+      <form action="https://formsubmit.co/hi@alejero.com" method="POST">
+        <!-- Honeypot to prevent spam -->
+        <input type="text" name="_honey" style="display: none;">
+        
+        <!-- Disable Captcha -->
+        <input type="hidden" name="_captcha" value="false">
+        
+        <!-- Success page -->
+        <input type="hidden" name="_next" value="https://your-website.com/thanks.html">
+        
         <label for="name">Your Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        
         <label for="email">Your Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        />
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        
         <label for="message">Your Message</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Your Message"
-          required
-        ></textarea>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        
         <button type="submit">Send Message</button>
       </form>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2025 alejero.studio | Designed by Alejero</p>
+      <p>&copy; 2025 alejero | Designed by Alejandro with ❤️</p>
       <div class="social-links">
         <a href="https://linkedin.com/in/alejero" target="_blank">
           <i class="fab fa-linkedin"></i> LinkedIn
