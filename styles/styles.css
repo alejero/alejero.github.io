@@ -333,6 +333,13 @@ section:nth-child(odd) {
     padding: var(--spacing-md);
 }
 
+.professional-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin: 0;
+}
+
 .professional-info .info-item {
     gap: var(--spacing-sm);
 }
@@ -362,6 +369,36 @@ section:nth-child(odd) {
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
+}
+
+.fun-facts {
+    width: fit-content;
+}
+
+.fun-facts h3 {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    margin-block-start: 0;
+    margin-block-end: var(--spacing-sm);
+}
+
+/* Skills Section */
+.skills-filter {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.filter-btn {
+    margin-bottom: 30px;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl) 0;
 }
 
 /* Currently Into Section - Widget Style */
@@ -878,12 +915,12 @@ section:nth-child(odd) {
     .skills-filter,
     .portfolio-filter {
         gap: 8px 12px; /* Slightly reduced spacing for mobile */
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
     }
 
-    .filter-btn {
+    /* .filter-btn {
         padding: 10px 20px;
-    }
+    } */
 
     .skill-bubble {
         padding: 7px 14px;
@@ -1489,10 +1526,6 @@ body.dark-mode .filter-btn.active {
 }
 
 /* Skills Section */
-.skills-filter .filter-btn {
-    margin-bottom: 30px;
-}
-
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
